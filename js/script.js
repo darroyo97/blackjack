@@ -71,27 +71,30 @@ let messageNode = document.getElementById('messages')
 
 
 function dealCards(player) {
+    let oldCard = document.getElementById('img')
+    oldCard.remove()
     let newCard = document.createElement('img')
     card = newDeck.pop()
-    console.log(card)
     newCard.setAttribute("src", card.imageURL)
     console.log(newCard)
     if (player == "dealer") {
         dealerContainer.append(newCard)
         dealerCards.push(card)
+        console.log('dealer')
     }
     else if (player == "player") {
         playerContainer.append(newCard)
         playerCards.push(card)
+        console.log('player')
     }
 }
 
-document.getElementById("btnDeal").addEventListener("click", function (dealer, player) {
+document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
-    dealCards(dealer)
-    dealCards(dealer)
-    dealCards(player)
-    dealCards(player)
+    dealCards("dealer")
+    dealCards("player")
+    dealCards("dealer")
+    dealCards("player")
 });
 document.getElementById("btnHit").addEventListener("click", function (player) {
     // console.log('hit player')
