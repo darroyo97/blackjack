@@ -61,7 +61,7 @@ function shuffle(a) {
     return a;
 }
 let newDeck = shuffle(deck)
-
+let limitOp = false
 // console.log(newDeck)
 let dealerCards = []
 let playerCards = []
@@ -87,6 +87,7 @@ function dealCards(player) {
         playerCards.push(card)
         console.log('player')
     }
+    limitOp = true
 }
 function hitPlayer() {
     let anotherCard = document.createElement('img')
@@ -95,6 +96,9 @@ function hitPlayer() {
     playerContainer.append(anotherCard)
     playerCards.push(card)
 }
+// function calculatePoints() {
+    
+// }
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
