@@ -1,55 +1,87 @@
-let deck = [
-    { suit: "Diamonds", value = "1", imageURL: "images/AD.jpg" },
-    { suit: "Diamonds", value = "2", imageURL: "images/2D.jpg" },
-    { suit: "Diamonds", value = "3", imageURL: "images/3D.jpg" },
-    { suit: "Diamonds", value = "4", imageURL: "images/4D.jpg" },
-    { suit: "Diamonds", value = "5", imageURL: "images/5D.jpg" },
-    { suit: "Diamonds", value = "6", imageURL: "images/6D.jpg" },
-    { suit: "Diamonds", value = "7", imageURL: "images/7D.jpg" },
-    { suit: "Diamonds", value = "8", imageURL: "images/8D.jpg" },
-    { suit: "Diamonds", value = "9", imageURL: "images/9D.jpg" },
-    { suit: "Diamonds", value = "10", imageURL: "images/10D.jpg" },
-    { suit: "Diamonds", value = "10", imageURL: "images/JD.jpg" },
-    { suit: "Diamonds", value = "10", imageURL: "images/QD.jpg" },
-    { suit: "Diamonds", value = "10", imageURL: "images/KD.jpg" },
-    { suit: "Hearts", value = "1", imageURL: "images/AH.jpg" },
-    { suit: "Hearts", value = "2", imageURL: "images/2H.jpg" },
-    { suit: "Hearts", value = "3", imageURL: "images/3H.jpg" },
-    { suit: "Hearts", value = "4", imageURL: "images/4H.jpg" },
-    { suit: "Hearts", value = "5", imageURL: "images/5H.jpg" },
-    { suit: "Hearts", value = "6", imageURL: "images/6H.jpg" },
-    { suit: "Hearts", value = "7", imageURL: "images/7H.jpg" },
-    { suit: "Hearts", value = "8", imageURL: "images/8H.jpg" },
-    { suit: "Hearts", value = "9", imageURL: "images/9H.jpg" },
-    { suit: "Hearts", value = "10", imageURL: "images/10H.jpg" },
-    { suit: "Hearts", value = "10", imageURL: "images/JH.jpg" },
-    { suit: "Hearts", value = "10", imageURL: "images/QH.jpg" },
-    { suit: "Hearts", value = "10", imageURL: "images/KH.jpg" },
-    { suit: "Spades", value = "1", imageURL: "images/AS.jpg" },
-    { suit: "Spades", value = "2", imageURL: "images/2S.jpg" },
-    { suit: "Spades", value = "3", imageURL: "images/3S.jpg" },
-    { suit: "Spades", value = "4", imageURL: "images/4S.jpg" },
-    { suit: "Spades", value = "5", imageURL: "images/5S.jpg" },
-    { suit: "Spades", value = "6", imageURL: "images/6S.jpg" },
-    { suit: "Spades", value = "7", imageURL: "images/7S.jpg" },
-    { suit: "Spades", value = "8", imageURL: "images/8S.jpg" },
-    { suit: "Spades", value = "9", imageURL: "images/9S.jpg" },
-    { suit: "Spades", value = "10", imageURL: "images/10S.jpg" },
-    { suit: "Spades", value = "10", imageURL: "images/JS.jpg" },
-    { suit: "Spades", value = "10", imageURL: "images/QS.jpg" },
-    { suit: "Spades", value = "10", imageURL: "images/KS.jpg" },
-    { suit: "Clubs", value = "1", imageURL: "images/AC.jpg" },
-    { suit: "Clubs", value = "2", imageURL: "images/2C.jpg" },
-    { suit: "Clubs", value = "3", imageURL: "images/3C.jpg" },
-    { suit: "Clubs", value = "4", imageURL: "images/4C.jpg" },
-    { suit: "Clubs", value = "5", imageURL: "images/5C.jpg" },
-    { suit: "Clubs", value = "6", imageURL: "images/6C.jpg" },
-    { suit: "Clubs", value = "7", imageURL: "images/7C.jpg" },
-    { suit: "Clubs", value = "8", imageURL: "images/8C.jpg" },
-    { suit: "Clubs", value = "9", imageURL: "images/9C.jpg" },
-    { suit: "Clubs", value = "10", imageURL: "images/10C.jpg" },
-    { suit: "Clubs", value = "10", imageURL: "images/JC.jpg" },
-    { suit: "Clubs", value = "10", imageURL: "images/QC.jpg" },
-    { suit: "CLubs", value = "10", imageURL: "images/KC.jpg" }
+var deck = [
+    { point: 1, suit: 'diamonds', imageURL: 'images/AD.jpg' },
+    { point: 2, suit: 'diamonds', imageURL: 'images/2D.jpg' },
+    { point: 3, suit: 'diamonds', imageURL: 'images/3D.jpg' },
+    { point: 4, suit: 'diamonds', imageURL: 'images/4D.jpg' },
+    { point: 5, suit: 'diamonds', imageURL: 'images/5D.jpg' },
+    { point: 6, suit: 'diamonds', imageURL: 'images/6D.jpg' },
+    { point: 7, suit: 'diamonds', imageURL: 'images/7D.jpg' },
+    { point: 8, suit: 'diamonds', imageURL: 'images/8D.jpg' },
+    { point: 9, suit: 'diamonds', imageURL: 'images/9D.jpg' },
+    { point: 10, suit: 'diamonds', imageURL: 'images/10D.jpg' },
+    { point: 11, suit: 'diamonds', imageURL: 'images/JD.jpg' },
+    { point: 12, suit: 'diamonds', imageURL: 'images/QD.jpg' },
+    { point: 13, suit: 'diamonds', imageURL: 'images/KD.jpg' },
+    { point: 1, suit: 'hearts', imageURL: 'images/AH.jpg' },
+    { point: 2, suit: 'hearts', imageURL: 'images/2H.jpg' },
+    { point: 3, suit: 'hearts', imageURL: 'images/3H.jpg' },
+    { point: 4, suit: 'hearts', imageURL: 'images/4H.jpg' },
+    { point: 5, suit: 'hearts', imageURL: 'images/5H.jpg' },
+    { point: 6, suit: 'hearts', imageURL: 'images/6H.jpg' },
+    { point: 7, suit: 'hearts', imageURL: 'images/7H.jpg' },
+    { point: 8, suit: 'hearts', imageURL: 'images/8H.jpg' },
+    { point: 9, suit: 'hearts', imageURL: 'images/9H.jpg' },
+    { point: 10, suit: 'hearts', imageURL: 'images/10H.jpg' },
+    { point: 11, suit: 'hearts', imageURL: 'images/JH.jpg' },
+    { point: 12, suit: 'hearts', imageURL: 'images/QH.jpg' },
+    { point: 13, suit: 'hearts', imageURL: 'images/KH.jpg' },
+    { point: 1, suit: 'clubs', imageURL: 'images/AC.jpg' },
+    { point: 2, suit: 'clubs', imageURL: 'images/2C.jpg' },
+    { point: 3, suit: 'clubs', imageURL: 'images/3C.jpg' },
+    { point: 4, suit: 'clubs', imageURL: 'images/4C.jpg' },
+    { point: 5, suit: 'clubs', imageURL: 'images/5C.jpg' },
+    { point: 6, suit: 'clubs', imageURL: 'images/6C.jpg' },
+    { point: 7, suit: 'clubs', imageURL: 'images/7C.jpg' },
+    { point: 8, suit: 'clubs', imageURL: 'images/8C.jpg' },
+    { point: 9, suit: 'clubs', imageURL: 'images/9C.jpg' },
+    { point: 10, suit: 'clubs', imageURL: 'images/10C.jpg' },
+    { point: 11, suit: 'clubs', imageURL: 'images/JC.jpg' },
+    { point: 12, suit: 'clubs', imageURL: 'images/QC.jpg' },
+    { point: 13, suit: 'clubs', imageURL: 'images/KC.jpg' },
+    { point: 1, suit: 'spades', imageURL: 'images/AS.jpg' },
+    { point: 2, suit: 'spades', imageURL: 'images/2S.jpg' },
+    { point: 3, suit: 'spades', imageURL: 'images/3S.jpg' },
+    { point: 4, suit: 'spades', imageURL: 'images/4S.jpg' },
+    { point: 5, suit: 'spades', imageURL: 'images/5S.jpg' },
+    { point: 6, suit: 'spades', imageURL: 'images/6S.jpg' },
+    { point: 7, suit: 'spades', imageURL: 'images/7S.jpg' },
+    { point: 8, suit: 'spades', imageURL: 'images/8S.jpg' },
+    { point: 9, suit: 'spades', imageURL: 'images/9S.jpg' },
+    { point: 10, suit: 'spades', imageURL: 'images/10S.jpg' },
+    { point: 11, suit: 'spades', imageURL: 'images/JS.jpg' },
+    { point: 12, suit: 'spades', imageURL: 'images/QS.jpg' },
+    { point: 13, suit: 'spades', imageURL: 'images/KS.jpg' }
 ]
-// hearts, diamonds, spades and clubs.
+let dealerCards = []
+let playerCards = []
+let dealerContainer = document.getElementById('dealer-hand')
+let playerCards = document.getElementById('player-hand')
+
+
+
+function dealCards(player) {
+    let newCard = document.getElementByTagName('img')
+    card = deck.pop()
+    newCard.setAttribute("src", card.imageURL)
+    if (player == "dealer") {
+        dealerContainer.append(newCard)
+        dealerCards.push(card)
+    }
+    else if (player == "player") {
+        playerContainer.append(newCard)
+        playerCards.push(card)
+    }
+}
+
+document.getElementById("btnDeal").addEventListener("click", function (e) {
+    dealCards(player)
+    dealCards(dealer)
+    dealCards(player)
+    dealCards(dealer)
+});
+document.getElementById("btnHit").addEventListener("click", function (e) {
+    //write "hit" logic here
+});
+document.getElementById("btnStand").addEventListener("click", function (e) {
+    //write "Stand" logic here
+});

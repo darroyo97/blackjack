@@ -9,12 +9,15 @@ html, body {
     border-radius: 15px;
 }
 .deck-cont {
-    background-color: white;
-    opacity: 30%;
+    /* background-color: white;     */
     margin-bottom: 10px;
     color: black;
-    height: 100px; 
+    height: 120px; 
 }
 .header-temp {
     height: 100px;
+}
+img {
+    height: 120px;
+    width: 80px;
 }
