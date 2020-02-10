@@ -55,12 +55,12 @@ var deck = [
 let dealerCards = []
 let playerCards = []
 let dealerContainer = document.getElementById('dealer-hand')
-let playerCards = document.getElementById('player-hand')
+let playerContainer = document.getElementById('player-hand')
 
 
 
 function dealCards(player) {
-    let newCard = document.getElementByTagName('img')
+    let newCard = document.createElement('img')
     card = deck.pop()
     newCard.setAttribute("src", card.imageURL)
     if (player == "dealer") {
@@ -73,15 +73,14 @@ function dealCards(player) {
     }
 }
 
-document.getElementById("btnDeal").addEventListener("click", function (e) {
-    dealCards(player)
+document.getElementById("btnDeal").addEventListener("click", function (dealer) {
+    console.log('deal cards')
     dealCards(dealer)
-    dealCards(player)
     dealCards(dealer)
 });
 document.getElementById("btnHit").addEventListener("click", function (e) {
-    //write "hit" logic here
+    console.log('hit player')
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
-    //write "Stand" logic here
+    console.log('stand and run test')
 });
