@@ -97,6 +97,7 @@ function hitPlayer() {
         anotherCard.setAttribute("src", card.imageURL)
         playerContainer.append(anotherCard)
         playerCards.push(card)
+
     }
 }
 function calculatePoints(person) {
@@ -143,6 +144,7 @@ document.getElementById("btnDeal").addEventListener("click", function (e) {
 });
 document.getElementById("btnHit").addEventListener("click", function (e) {
     hitPlayer()
+    calculatePoints("player")
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
     console.log('stand and run test')
