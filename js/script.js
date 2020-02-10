@@ -90,14 +90,15 @@ function dealCards(player) {
     limitOp = true
 }
 function hitPlayer() {
-    let anotherCard = document.createElement('img')
-    card = newDeck.pop()
-    anotherCard.setAttribute("src", card.imageURL)
-    playerContainer.append(anotherCard)
-    playerCards.push(card)
+    if (playerCards.length > 1) {
+        let anotherCard = document.createElement('img')
+        card = newDeck.pop()
+        anotherCard.setAttribute("src", card.imageURL)
+        playerContainer.append(anotherCard)
+        playerCards.push(card)
+    }
 }
 // function calculatePoints() {
-    
 // }
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
