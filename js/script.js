@@ -52,17 +52,30 @@ var deck = [
     { point: 12, suit: 'spades', imageURL: 'images/QS.jpg' },
     { point: 13, suit: 'spades', imageURL: 'images/KS.jpg' }
 ]
+//shuffle deck
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+let newDeck = shuffle(deck)
+
+// console.log(newDeck)
 let dealerCards = []
 let playerCards = []
 let dealerContainer = document.getElementById('dealer-hand')
 let playerContainer = document.getElementById('player-hand')
-
+let messageNode = document.getElementById('messages')
 
 
 function dealCards(player) {
     let newCard = document.createElement('img')
-    card = deck.pop()
+    card = newDeck.pop()
+    console.log(card)
     newCard.setAttribute("src", card.imageURL)
+    console.log(newCard)
     if (player == "dealer") {
         dealerContainer.append(newCard)
         dealerCards.push(card)
@@ -73,14 +86,18 @@ function dealCards(player) {
     }
 }
 
-document.getElementById("btnDeal").addEventListener("click", function (dealer) {
-    console.log('deal cards')
+document.getElementById("btnDeal").addEventListener("click", function (dealer, player) {
+    // console.log('deal cards')
     dealCards(dealer)
     dealCards(dealer)
+    dealCards(player)
+    dealCards(player)
 });
-document.getElementById("btnHit").addEventListener("click", function (e) {
-    console.log('hit player')
+document.getElementById("btnHit").addEventListener("click", function (player) {
+    // console.log('hit player')
+    dealCards(player)
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
     console.log('stand and run test')
+    //
 });
