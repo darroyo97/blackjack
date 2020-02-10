@@ -68,7 +68,8 @@ let playerCards = []
 let dealerContainer = document.getElementById('dealer-hand')
 let playerContainer = document.getElementById('player-hand')
 let messageNode = document.getElementById('messages')
-
+let playerPoints = document.getElementById('player-points')
+let dealerPoints = document.getElementById('dealer-points')
 
 function dealCards(player) {
     let oldCard = document.getElementById('img')
@@ -80,12 +81,12 @@ function dealCards(player) {
     if (player == "dealer") {
         dealerContainer.append(newCard)
         dealerCards.push(card)
-        // console.log('dealer')
+        console.log('dealer')
     }
     else if (player == "player") {
         playerContainer.append(newCard)
         playerCards.push(card)
-        // console.log('player')
+        console.log('player')
     }
     limitOp = true
 }
@@ -96,21 +97,10 @@ function hitPlayer() {
         anotherCard.setAttribute("src", card.imageURL)
         playerContainer.append(anotherCard)
         playerCards.push(card)
-        // console.log(playerCards)
-        // calcs by point example works
-        // let playerCardsCalc = playerCards.map(function (e) {
-        //     return e.point
-        // })
-        // console.log(playerCardsCalc)
-        // var sumOfPlayer = playerCardsCalc.reduce(function (a, b) {
-        //     return a + b
-        // }, 0);
-        // console.log(sumOfPlayer)
-
     }
 }
-function calculatePoints(player) {
-    if (player = "player") {
+function calculatePoints(person) {
+    if (person == "player") {
         let playerCardsCalc = playerCards.map(function (e) {
             return e.point
         })
@@ -119,7 +109,9 @@ function calculatePoints(player) {
             return a + b
         }, 0);
         console.log(sumOfPlayer)
-    } else if (player = "dealer") {
+    }
+
+    else if (person == "dealer") {
         let dealerCardsCalc = dealerCards.map(function (e) {
             return e.point
         })
@@ -128,8 +120,17 @@ function calculatePoints(player) {
             return a + b
         }, 0);
         console.log(sumOfDealer)
+        // if (sumOfDealer > 21) {
+        //     console.log('dealer busted')
+        // }
+
     }
 }
+// function checkPoints() {
+//     calculatePoints("player")
+//     calculatePoints("dealer")
+
+// }
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
@@ -137,9 +138,10 @@ document.getElementById("btnDeal").addEventListener("click", function (e) {
     dealCards("player")
     dealCards("dealer")
     dealCards("player")
+    calculatePoints("player")
+    calculatePoints("dealer")
 });
 document.getElementById("btnHit").addEventListener("click", function (e) {
-    // console.log('hit player')
     hitPlayer()
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
