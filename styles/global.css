@@ -1,0 +1,20 @@
+html, body {
+    background-color: black !important;
+    font-size: 20px;
+}
+.container {
+    background-color: green;
+    margin-top: 12%;
+    border: tan 3px solid;
+    border-radius: 15px;
+}
+.deck-cont {
+    background-color: white;
+    opacity: 30%;
+    margin-bottom: 10px;
+    color: black;
+    height: 100px; 
+}
+.header-temp {
+    height: 100px;
+}
