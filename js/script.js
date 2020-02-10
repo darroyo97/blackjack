@@ -9,9 +9,9 @@ var deck = [
     { point: 8, suit: 'diamonds', imageURL: 'images/8D.jpg' },
     { point: 9, suit: 'diamonds', imageURL: 'images/9D.jpg' },
     { point: 10, suit: 'diamonds', imageURL: 'images/10D.jpg' },
-    { point: 11, suit: 'diamonds', imageURL: 'images/JD.jpg' },
-    { point: 12, suit: 'diamonds', imageURL: 'images/QD.jpg' },
-    { point: 13, suit: 'diamonds', imageURL: 'images/KD.jpg' },
+    { point: 10, suit: 'diamonds', imageURL: 'images/JD.jpg' },
+    { point: 10, suit: 'diamonds', imageURL: 'images/QD.jpg' },
+    { point: 10, suit: 'diamonds', imageURL: 'images/KD.jpg' },
     { point: 1, suit: 'hearts', imageURL: 'images/AH.jpg' },
     { point: 2, suit: 'hearts', imageURL: 'images/2H.jpg' },
     { point: 3, suit: 'hearts', imageURL: 'images/3H.jpg' },
@@ -22,9 +22,9 @@ var deck = [
     { point: 8, suit: 'hearts', imageURL: 'images/8H.jpg' },
     { point: 9, suit: 'hearts', imageURL: 'images/9H.jpg' },
     { point: 10, suit: 'hearts', imageURL: 'images/10H.jpg' },
-    { point: 11, suit: 'hearts', imageURL: 'images/JH.jpg' },
-    { point: 12, suit: 'hearts', imageURL: 'images/QH.jpg' },
-    { point: 13, suit: 'hearts', imageURL: 'images/KH.jpg' },
+    { point: 10, suit: 'hearts', imageURL: 'images/JH.jpg' },
+    { point: 10, suit: 'hearts', imageURL: 'images/QH.jpg' },
+    { point: 10, suit: 'hearts', imageURL: 'images/KH.jpg' },
     { point: 1, suit: 'clubs', imageURL: 'images/AC.jpg' },
     { point: 2, suit: 'clubs', imageURL: 'images/2C.jpg' },
     { point: 3, suit: 'clubs', imageURL: 'images/3C.jpg' },
@@ -35,9 +35,9 @@ var deck = [
     { point: 8, suit: 'clubs', imageURL: 'images/8C.jpg' },
     { point: 9, suit: 'clubs', imageURL: 'images/9C.jpg' },
     { point: 10, suit: 'clubs', imageURL: 'images/10C.jpg' },
-    { point: 11, suit: 'clubs', imageURL: 'images/JC.jpg' },
-    { point: 12, suit: 'clubs', imageURL: 'images/QC.jpg' },
-    { point: 13, suit: 'clubs', imageURL: 'images/KC.jpg' },
+    { point: 10, suit: 'clubs', imageURL: 'images/JC.jpg' },
+    { point: 10, suit: 'clubs', imageURL: 'images/QC.jpg' },
+    { point: 10, suit: 'clubs', imageURL: 'images/KC.jpg' },
     { point: 1, suit: 'spades', imageURL: 'images/AS.jpg' },
     { point: 2, suit: 'spades', imageURL: 'images/2S.jpg' },
     { point: 3, suit: 'spades', imageURL: 'images/3S.jpg' },
@@ -48,9 +48,9 @@ var deck = [
     { point: 8, suit: 'spades', imageURL: 'images/8S.jpg' },
     { point: 9, suit: 'spades', imageURL: 'images/9S.jpg' },
     { point: 10, suit: 'spades', imageURL: 'images/10S.jpg' },
-    { point: 11, suit: 'spades', imageURL: 'images/JS.jpg' },
-    { point: 12, suit: 'spades', imageURL: 'images/QS.jpg' },
-    { point: 13, suit: 'spades', imageURL: 'images/KS.jpg' }
+    { point: 10, suit: 'spades', imageURL: 'images/JS.jpg' },
+    { point: 10, suit: 'spades', imageURL: 'images/QS.jpg' },
+    { point: 10, suit: 'spades', imageURL: 'images/KS.jpg' }
 ]
 //shuffle deck
 function shuffle(a) {
@@ -76,16 +76,16 @@ function dealCards(player) {
     let newCard = document.createElement('img')
     card = newDeck.pop()
     newCard.setAttribute("src", card.imageURL)
-    console.log(newCard)
+    // console.log(newCard)
     if (player == "dealer") {
         dealerContainer.append(newCard)
         dealerCards.push(card)
-        console.log('dealer')
+        // console.log('dealer')
     }
     else if (player == "player") {
         playerContainer.append(newCard)
         playerCards.push(card)
-        console.log('player')
+        // console.log('player')
     }
     limitOp = true
 }
@@ -96,10 +96,40 @@ function hitPlayer() {
         anotherCard.setAttribute("src", card.imageURL)
         playerContainer.append(anotherCard)
         playerCards.push(card)
+        // console.log(playerCards)
+        // calcs by point example works
+        // let playerCardsCalc = playerCards.map(function (e) {
+        //     return e.point
+        // })
+        // console.log(playerCardsCalc)
+        // var sumOfPlayer = playerCardsCalc.reduce(function (a, b) {
+        //     return a + b
+        // }, 0);
+        // console.log(sumOfPlayer)
+
     }
 }
-// function calculatePoints() {
-// }
+function calculatePoints(player) {
+    if (player = "player") {
+        let playerCardsCalc = playerCards.map(function (e) {
+            return e.point
+        })
+        console.log(playerCardsCalc)
+        var sumOfPlayer = playerCardsCalc.reduce(function (a, b) {
+            return a + b
+        }, 0);
+        console.log(sumOfPlayer)
+    } else if (player = "dealer") {
+        let dealerCardsCalc = dealerCards.map(function (e) {
+            return e.point
+        })
+        console.log(dealerCardsCalc)
+        var sumOfDealer = dealerCardsCalc.reduce(function (a, b) {
+            return a + b
+        }, 0);
+        console.log(sumOfDealer)
+    }
+}
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
