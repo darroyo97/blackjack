@@ -88,6 +88,13 @@ function dealCards(player) {
         console.log('player')
     }
 }
+function hitPlayer() {
+    let anotherCard = document.createElement('img')
+    card = newDeck.pop()
+    anotherCard.setAttribute("src", card.imageURL)
+    playerContainer.append(anotherCard)
+    playerCards.push(card)
+}
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
@@ -96,9 +103,9 @@ document.getElementById("btnDeal").addEventListener("click", function (e) {
     dealCards("dealer")
     dealCards("player")
 });
-document.getElementById("btnHit").addEventListener("click", function (player) {
+document.getElementById("btnHit").addEventListener("click", function (e) {
     // console.log('hit player')
-    dealCards(player)
+    hitPlayer()
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
     console.log('stand and run test')
