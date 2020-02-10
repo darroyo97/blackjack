@@ -110,6 +110,7 @@ function calculatePoints(person) {
             return a + b
         }, 0);
         console.log(sumOfPlayer)
+        playerPoints.append(sumOfPlayer)
     }
 
     else if (person == "dealer") {
@@ -121,17 +122,14 @@ function calculatePoints(person) {
             return a + b
         }, 0);
         console.log(sumOfDealer)
+        dealerPoints.append(sumOfDealer)
         // if (sumOfDealer > 21) {
         //     console.log('dealer busted')
         // }
 
     }
 }
-// function checkPoints() {
-//     calculatePoints("player")
-//     calculatePoints("dealer")
 
-// }
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
