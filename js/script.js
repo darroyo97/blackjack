@@ -126,6 +126,8 @@ function calculatePoints(person) {
         // console.log(sumOfPlayer)
         playerPoints.innerText = sumOfPlayer
         if (playerPoints.innerText > 21) {
+            let message = "you busted dealer wins"
+            messageNode.innerText = message
             console.log('you busted')
         }
     }
@@ -141,6 +143,8 @@ function calculatePoints(person) {
         // console.log(sumOfDealer)
         dealerPoints.innerText = sumOfDealer
         if (dealerPoints.innerText > 21) {
+            let message = "dealer busted player wins"
+            messageNode.innerText = message
             console.log('dealer busted')
         }
     }
@@ -148,19 +152,28 @@ function calculatePoints(person) {
 }
 function messagesShow() {
     let message = 'Lets Play Blackjack'
-    messageNode.append(message)
+    messageNode.innerText = message
 }
 messagesShow()
 
 function standGame() {
     if (dealerPoints.innerText <= 21 && dealerPoints.innerText > playerPoints.innerHTML) {
+        let message = "Dealer wins"
+        messageNode.innerText = message
         console.log('dealer wins')
     } else if (dealerPoints.innerHTML > 21 && playerPoints.innerHTML <= 21) {
+        let message = "dealer busted player wins"
+        messageNode.innerText = message
         console.log('dealer busted player wins')
     } else if (playerPoints.innerText > 21) {
+        let message = "you busted dealer wins"
+        messageNode.innerText = message
         console.log('you busted dealer wins')
     } else if (playerPoints.innerHTML == dealerPoints.innerText) {
         console.log('game ties')
+    } else if (playerPoints.innerText > dealerPoints.innerText) {
+        let message = "Player Wins"
+        messageNode.innerText = message
     }
 }
 
