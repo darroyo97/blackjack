@@ -14,8 +14,10 @@ html, body {
     color: black;
     height: 120px; 
 }
-.header-temp {
+#messages {
     height: 100px;
+    font-size: 30px;
+    padding-top: 30px;
 }
 img {
     height: 120px;
