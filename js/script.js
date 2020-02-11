@@ -152,6 +152,17 @@ function messagesShow() {
 }
 messagesShow()
 
+function standGame() {
+    if (dealerPoints.innerText <= 21 && dealerPoints.innerText > playerPoints.innerHTML) {
+        console.log('dealer wins')
+    } else if (dealerPoints.innerHTML > 21 && playerPoints.innerHTML <= 21) {
+        console.log('dealer busted player wins')
+    } else if (playerPoints.innerText > 21) {
+        console.log('you busted dealer wins')
+    } else if (playerPoints.innerHTML == dealerPoints.innerText) {
+        console.log('game ties')
+    }
+}
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
@@ -170,4 +181,5 @@ document.getElementById("btnHit").addEventListener("click", function (e) {
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
     // console.log('stand and run test')
+    standGame()
 });
