@@ -70,6 +70,7 @@ let playerContainer = document.getElementById('player-hand')
 let messageNode = document.getElementById('messages')
 let playerPoints = document.getElementById('player-points')
 let dealerPoints = document.getElementById('dealer-points')
+let hitButton = document.getElementById("btnHit")
 
 function dealCards(player) {
     let oldCard = document.getElementById('img')
@@ -98,10 +99,14 @@ function hitPlayer() {
         playerContainer.append(anotherCard)
         playerCards.push(card)
         if (playerPoints.innerText > 21) {
+            let message = "you busted dealer wins"
+            messageNode.innerText = message
             console.log('you busted')
+            hitButton.setAttribute("disabled", "")
         }
     }
 }
+// b.setAttribute("disabled", "");
 function hitDealer() {
     if (dealerPoints.innerText < 19) {
         let anotherCard = document.createElement('img')
@@ -110,6 +115,9 @@ function hitDealer() {
         dealerContainer.append(anotherCard)
         dealerCards.push(card)
         if (dealerPoints.innerText > 21) {
+            let message = "dealer busted player wins"
+            messageNode.innerText = message
+            hitButton.setAttribute("disabled", "")
             console.log('dealer busted')
         }
     }
@@ -128,6 +136,7 @@ function calculatePoints(person) {
         if (playerPoints.innerText > 21) {
             let message = "you busted dealer wins"
             messageNode.innerText = message
+            hitButton.setAttribute("disabled", "")
             console.log('you busted')
         }
     }
@@ -145,6 +154,7 @@ function calculatePoints(person) {
         if (dealerPoints.innerText > 21) {
             let message = "dealer busted player wins"
             messageNode.innerText = message
+            hitButton.setAttribute("disabled", "")
             console.log('dealer busted')
         }
     }
@@ -160,20 +170,24 @@ function standGame() {
     if (dealerPoints.innerText <= 21 && dealerPoints.innerText > playerPoints.innerHTML) {
         let message = "Dealer wins"
         messageNode.innerText = message
+        hitButton.setAttribute("disabled", "")
         console.log('dealer wins')
     } else if (dealerPoints.innerHTML > 21 && playerPoints.innerHTML <= 21) {
         let message = "dealer busted player wins"
         messageNode.innerText = message
+        hitButton.setAttribute("disabled", "")
         console.log('dealer busted player wins')
     } else if (playerPoints.innerText > 21) {
         let message = "you busted dealer wins"
         messageNode.innerText = message
+        hitButton.setAttribute("disabled", "")
         console.log('you busted dealer wins')
     } else if (playerPoints.innerHTML == dealerPoints.innerText) {
         console.log('game ties')
     } else if (playerPoints.innerText > dealerPoints.innerText) {
         let message = "Player Wins"
         messageNode.innerText = message
+        hitButton.setAttribute("disabled", "")
     }
 }
 
@@ -186,7 +200,7 @@ document.getElementById("btnDeal").addEventListener("click", function (e) {
     calculatePoints("player")
     calculatePoints("dealer")
 });
-document.getElementById("btnHit").addEventListener("click", function (e) {
+hitButton.addEventListener("click", function (e) {
     hitPlayer()
     hitDealer()
     calculatePoints("player")
