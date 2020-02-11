@@ -81,12 +81,12 @@ function dealCards(player) {
     if (player == "dealer") {
         dealerContainer.append(newCard)
         dealerCards.push(card)
-        console.log('dealer')
+        // console.log('dealer')
     }
     else if (player == "player") {
         playerContainer.append(newCard)
         playerCards.push(card)
-        console.log('player')
+        // console.log('player')
     }
     limitOp = true
 }
@@ -105,41 +105,45 @@ function calculatePoints(person) {
         let playerCardsCalc = playerCards.map(function (e) {
             return e.point
         })
-        console.log(playerCardsCalc)
+        // console.log(playerCardsCalc)
         var sumOfPlayer = playerCardsCalc.reduce(function (a, b) {
             return a + b
         }, 0);
-        console.log(sumOfPlayer)
-        playerPoints.append(sumOfPlayer)
+        // console.log(sumOfPlayer)
+        if (playerPoints.innerText.length < 1) {
+            playerPoints.append(sumOfPlayer)
+        } else {
+            playerPoints.remove()
+        }
     }
 
     else if (person == "dealer") {
         let dealerCardsCalc = dealerCards.map(function (e) {
             return e.point
         })
-        console.log(dealerCardsCalc)
+        // console.log(dealerCardsCalc)
         var sumOfDealer = dealerCardsCalc.reduce(function (a, b) {
             return a + b
         }, 0);
-        console.log(sumOfDealer)
+        // console.log(sumOfDealer)
         dealerPoints.append(sumOfDealer)
-        // if (sumOfDealer > 21) {
-        //     console.log('dealer busted')
-        // }
+        return dealerPoints
 
-    }
-}
-function testingPoints() {
-    if (playerPoints > 21) {
-        console.log('player busted')
-    }
-    else if (dealerPoints <= 21 && dealerPoints > playerPoints) {
-        console.log("dealer wins")
-    } else if (dealerPoints > 21 || playerPoints > dealerPoints) {
-        console.log('player wins')
     }
 
 }
+// function testingPoints() {
+//     console.log(playerPoints.innerText)
+//     if (playerPoints > 21) {
+//         console.log('player busted')
+//     }
+//     else if (dealerPoints <= 21 && dealerPoints > playerPoints) {
+//         console.log("dealer wins")
+//     } else if (dealerPoints > 21 || playerPoints > dealerPoints) {
+//         console.log('player wins')
+//     }
+
+// }
 function messagesShow() {
     let message = 'Lets Play Blackjack'
     messageNode.append(message)
@@ -161,5 +165,5 @@ document.getElementById("btnHit").addEventListener("click", function (e) {
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
     // console.log('stand and run test')
-    testingPoints();
+    // testingPoints();
 });
