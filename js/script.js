@@ -110,11 +110,7 @@ function calculatePoints(person) {
             return a + b
         }, 0);
         // console.log(sumOfPlayer)
-        if (playerPoints.innerText.length < 1) {
-            playerPoints.append(sumOfPlayer)
-        } else {
-            playerPoints.remove()
-        }
+        playerPoints.innerText = sumOfPlayer
     }
 
     else if (person == "dealer") {
@@ -132,18 +128,6 @@ function calculatePoints(person) {
     }
 
 }
-// function testingPoints() {
-//     console.log(playerPoints.innerText)
-//     if (playerPoints > 21) {
-//         console.log('player busted')
-//     }
-//     else if (dealerPoints <= 21 && dealerPoints > playerPoints) {
-//         console.log("dealer wins")
-//     } else if (dealerPoints > 21 || playerPoints > dealerPoints) {
-//         console.log('player wins')
-//     }
-
-// }
 function messagesShow() {
     let message = 'Lets Play Blackjack'
     messageNode.append(message)
