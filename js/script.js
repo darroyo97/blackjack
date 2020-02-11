@@ -97,7 +97,21 @@ function hitPlayer() {
         anotherCard.setAttribute("src", card.imageURL)
         playerContainer.append(anotherCard)
         playerCards.push(card)
-
+        if (playerPoints.innerText > 21) {
+            console.log('you busted')
+        }
+    }
+}
+function hitDealer() {
+    if (dealerPoints.innerText < 19) {
+        let anotherCard = document.createElement('img')
+        card = newDeck.pop()
+        anotherCard.setAttribute("src", card.imageURL)
+        dealerContainer.append(anotherCard)
+        dealerCards.push(card)
+        if (dealerPoints.innerText > 21) {
+            console.log('dealer busted')
+        }
     }
 }
 function calculatePoints(person) {
@@ -111,6 +125,9 @@ function calculatePoints(person) {
         }, 0);
         // console.log(sumOfPlayer)
         playerPoints.innerText = sumOfPlayer
+        if (playerPoints.innerText > 21) {
+            console.log('you busted')
+        }
     }
 
     else if (person == "dealer") {
@@ -122,9 +139,10 @@ function calculatePoints(person) {
             return a + b
         }, 0);
         // console.log(sumOfDealer)
-        dealerPoints.append(sumOfDealer)
-        return dealerPoints
-
+        dealerPoints.innerText = sumOfDealer
+        if (dealerPoints.innerText > 21) {
+            console.log('dealer busted')
+        }
     }
 
 }
@@ -133,6 +151,7 @@ function messagesShow() {
     messageNode.append(message)
 }
 messagesShow()
+
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
@@ -145,9 +164,10 @@ document.getElementById("btnDeal").addEventListener("click", function (e) {
 });
 document.getElementById("btnHit").addEventListener("click", function (e) {
     hitPlayer()
+    hitDealer()
     calculatePoints("player")
+    calculatePoints("dealer")
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
     // console.log('stand and run test')
-    // testingPoints();
 });
