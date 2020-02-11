@@ -129,7 +129,22 @@ function calculatePoints(person) {
 
     }
 }
+function testingPoints() {
+    if (playerPoints > 21) {
+        console.log('player busted')
+    }
+    else if (dealerPoints <= 21 && dealerPoints > playerPoints) {
+        console.log("dealer wins")
+    } else if (dealerPoints > 21 || playerPoints > dealerPoints) {
+        console.log('player wins')
+    }
 
+}
+function messagesShow() {
+    let message = 'Lets Play Blackjack'
+    messageNode.append(message)
+}
+messagesShow()
 
 document.getElementById("btnDeal").addEventListener("click", function (e) {
     // console.log('deal cards')
@@ -145,6 +160,6 @@ document.getElementById("btnHit").addEventListener("click", function (e) {
     calculatePoints("player")
 });
 document.getElementById("btnStand").addEventListener("click", function (e) {
-    console.log('stand and run test')
-    //
+    // console.log('stand and run test')
+    testingPoints();
 });
